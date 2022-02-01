@@ -1,0 +1,53 @@
+Maria Moșneag
+333CA
+Tema LFA
+
+tema.cpp: accessible, productive, useful, synchronize
+bonus.cpp: labyrinth
+Makefile
+mytime.cfg
+README
+
+accessible
+    - Se pornește din stările de început câte o parcurge a grafului stărilor din
+      automat folosindu-se BFS.
+    - Rezultatul este reprezentat de toate stările care au fost vizitate în ca-
+      drul etapei de parcurgere.
+
+productive
+    - Procedeul este asemănător celui de obținere a stărilor accesibile, dife-
+      rențele fiind reprezentate de faptul că de această dată parcurgerile vor
+      fi pornite din stările finale și de realizarea tranzițiilor în sens in-
+      vers.
+
+useful
+    - Cum stările utile sunt reprezentate de stările care sunt în același timp
+      și accesibile și productive, am folosit funcțiile deja implementate pentru
+      cerințele anterioare.
+    - Am determinat mulțimea stărilor accesibile, apoi mulțimea stărilor produc-
+      tive și, în final, am realizat intersecția între cele două mulțimi, rezul-
+      tatul reprezentând chiar stările utile.
+
+synchronize
+    - Am determinat matricea tranzițiilor inverse. (compute_go_back)
+    - Am determinat parcursul către o stare finală din toate perechile posibile
+      de stări. (compute_merge_aux)
+    - Urmează algoritmul propriu zis de determinare al secvenței de sincroniza-
+      re: în mod repetat, se găsește secvența de merge pentru două stări din se-
+      tul curent (merging_seq3_0) și se realizează tranzițiile din toate stările
+      din setul curent pe secvența de merge găsită. Algoritmul se oprește în mo-
+      mentul în care în set rămâne o singură stare.
+
+labyrinth
+    - Am realizat următoarea codificare:
+        n (numărul de stări) = l (numărul de linii din labirint) *
+                                c (numărul de coloane din labirint)
+        m (numărul de simboluri) = 4 (est, nord, vest, sud)
+        s (numărul de stări inițiale) = r (numărul de roboți)
+        f (numărul de stări finale) = o (numărul de ieșiri)
+    - Pozițiile din labirint sunt codificate astfel:
+        linia l, coloana c => l * (număr total de coloane) + c
+    - Tranzițiile sunt reprezentate de toate mișcările posibile dintr-o celulă
+      a labirintului.
+    - Stările inițiale sunt reprezentate de pozițiile roboților.
+    - Stările finale sunt reprezentate de pozițiile ieșirilor.
